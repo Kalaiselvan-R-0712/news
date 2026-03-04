@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latest News | Stackly</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+/* GLOBAL */
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#f5f5f5;
+transition:0.3s;
+}
+
+.container{
+width:95%;
+margin:auto;
+}
+
+a{text-decoration:none;color:inherit}
+
+/* HEADER */
+
+.stackly-header{
+position:sticky;
+top:0;
+z-index:9999;
+display:flex;
+justify-content:center;
+padding:15px 0;
+background:#f5f5f5;
+}
+
+.stackly-nav{
+width:95%;
+background:#000;
+border-radius:70px;
+padding:18px 45px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
+
+.stackly-logo img{
+height:55px;
+}
+
+.stackly-menu ul{
+display:flex;
+gap:35px;
+list-style:none;
+align-items:center;
+}
+
+.stackly-menu a,
+.stackly-menu span{
+color:#fff;
+font-size:15px;
+transition:0.3s;
+}
+
+.stackly-menu li:hover a{
+color:#ff0055;
+}
+
+.dropdown{
+position:relative;
+}
+
+/* ================= PREMIUM VERTICAL DROPDOWN ================= */
+
+.dropdown{
+position:relative;
+}
+
+.dropdown-menu{
+position:absolute;
+top:65px;
+left:0;
+min-width:180px;
+
+display:flex;
+flex-direction:column;
+align-items:stretch;
+
+padding:12px 0;
+border-radius:18px;
+
+background:rgba(15,15,15,0.95);
+backdrop-filter:blur(12px);
+
+box-shadow:0 20px 50px rgba(0,0,0,0.35);
+
+opacity:0;
+visibility:hidden;
+transform:translateY(15px);
+transition:all 0.3s ease;
+
+z-index:10000;
+}
+
+/* Show state */
+.dropdown.active .dropdown-menu{
+opacity:1;
+visibility:visible;
+transform:translateY(0);
+}
+
+/* Items */
+.dropdown-menu li{
+padding:12px 22px;
+width:100%;
+transition:all 0.25s ease;
+}
+
+.dropdown-menu li a{
+display:block;
+width:100%;
+color:#fff;
+font-size:14px;
+font-weight:500;
+}
+
+/* Hover */
+.dropdown-menu li:hover{
+background:rgba(255,255,255,0.05);
+}
+
+.dropdown-menu li:hover a{
+color:#ff0055;
+}
+
+.home-toggle i{
+font-size:12px;
+margin-left:6px;
+transition:transform 0.3s ease;
+}
+
+.dropdown.active .home-toggle i{
+transform:rotate(180deg);
+}
+
+.dropdown.active .dropdown-menu{
+opacity:1;
+visibility:visible;
+transform:translateY(0);
+}
+
+.dropdown-menu li{
+padding:12px 22px;
+}
+
+.theme-btn{
+background:#ff0055;
+border:none;
+color:#fff;
+width:42px;
+height:42px;
+border-radius:50%;
+cursor:pointer;
+font-size:16px;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+}
+
+.theme-btn i{
+position:absolute;
+transition:opacity .3s;
+}
+
+.icon-sun{opacity:0}
+body.dark .icon-moon{opacity:0}
+body.dark .icon-sun{opacity:1}
+
+.hamburger{
+display:none;
+font-size:22px;
+color:#fff;
+cursor:pointer;
+}
+
+/* HERO */
+
+/* HERO */
+
+.contact-hero{
+position:relative;
+height:420px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#fff;
+
+/* FIXED HERO IMAGE */
+background-image:url("assets/news-images/innovation.webp");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+.contact-hero-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+}
+
+.contact-hero-content{
+position:relative;
+z-index:2;
+max-width:700px;
+padding:20px;
+}
+
+.contact-hero h1{
+font-size:46px;
+margin-bottom:15px;
+}
+
+.contact-hero p{
+color:#ddd;
+}
+
+/* CONTACT */
+
+.contact-section{
+padding:80px 6%;
+background:#fff;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+}
+
+.contact-info h3{
+font-size:26px;
+margin-bottom:30px;
+}
+
+.contact-item{
+display:flex;
+gap:15px;
+margin-bottom:25px;
+}
+
+.contact-item i{
+color:#ff0055;
+font-size:20px;
+margin-top:4px;
+}
+
+.contact-form h3{
+font-size:26px;
+margin-bottom:30px;
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:14px;
+margin-bottom:18px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+.contact-form textarea{
+height:130px;
+resize:none;
+}
+
+.contact-btn{
+background:#ff0055;
+color:#fff;
+border:none;
+padding:14px 30px;
+border-radius:40px;
+cursor:pointer;
+transition:.3s;
+}
+
+.contact-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(255,0,85,.3);
+}
+
+/* MAP */
+
+.map-section{
+width:100%;
+height:500px;
+margin-top:80px;
+}
+
+.map-section iframe{
+width:100%;
+height:100%;
+border:0;
+}
+
+/* FOOTER */
+
+.stackly-footer{
+background:#0d0d0d;
+color:#ccc;
+margin-top:80px;
+}
+
+.footer-top{
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1.5fr;
+gap:40px;
+padding:60px 0;
+}
+
+.footer-col h3{
+color:#fff;
+margin-bottom:20px;
+}
+
+.footer-about img{
+height:50px;
+margin-bottom:20px;
+}
+
+.footer-social{
+display:flex;
+gap:15px;
+}
+
+.footer-social a{
+width:40px;
+height:40px;
+background:#1a1a1a;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:8px;
+color:#fff;
+}
+
+.footer-social a:hover{
+background:#ff0055;
+}
+
+.footer-bottom{
+background:#000;
+padding:20px 0;
+}
+
+.bottom-flex{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* DARK MODE */
+
+body.dark{
+background:#0f0f0f;
+color:#eee;
+}
+
+body.dark .contact-section{
+background:#111;
+}
+
+body.dark input,
+body.dark textarea{
+background:#222;
+border:1px solid #333;
+color:#fff;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+/* NAV LAYOUT */
+.stackly-nav{
+display:grid;
+grid-template-columns:auto 1fr auto;
+align-items:center;
+}
+
+/* MOBILE MENU */
+.stackly-menu{
+position:absolute;
+top:80px;
+left:50%;
+transform:translateX(-50%);
+width:95%;
+background:#111;
+padding:20px 0;
+display:none;
+border-radius:30px;
+max-height:calc(100vh - 100px);
+overflow-y:auto;
+}
+
+.stackly-menu::-webkit-scrollbar{
+width:6px;
+}
+
+.stackly-menu::-webkit-scrollbar-thumb{
+background:#ff0055;
+border-radius:10px;
+}
+
+/* MENU LIST */
+.stackly-menu ul{
+flex-direction:column;
+gap:20px;
+text-align:center;
+}
+
+/* SHOW MENU */
+.stackly-menu.active{
+display:block;
+}
+
+/* HAMBURGER */
+.hamburger{
+display:block;
+}
+
+/* MOBILE DROPDOWN */
+.dropdown-menu{
+position:static;
+background:#1a1a1a;
+
+opacity:0;
+visibility:hidden;
+transform:none;
+transition:none;
+}
+
+.dropdown.active .dropdown-menu{
+opacity:1;
+visibility:visible;
+}
+
+.footer-top{
+grid-template-columns:1fr;
+}
+
+}
+
+/* ================= STACKLY FOOTER ================= */
+
+.stackly-footer{
+background:#0d0d0d;
+color:#ccc;
+margin-top:80px;
+}
+
+.footer-top{
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1.5fr;
+gap:40px;
+padding:60px 0;
+}
+
+.footer-col h3{
+color:#fff;
+margin-bottom:20px;
+font-size:18px;
+}
+
+.footer-col ul{
+list-style:none;
+}
+
+.footer-col ul li{
+margin-bottom:12px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.footer-col ul li:hover{
+color:#ff0055;
+}
+
+.footer-about img{
+width:auto;
+height:50px;
+object-fit:contain;
+display:block;
+margin-bottom:20px;
+}
+
+.footer-about p{
+line-height:1.6;
+margin-bottom:20px;
+}
+
+.footer-social{
+display:flex;
+gap:15px;
+}
+
+.footer-social a{
+width:40px;
+height:40px;
+background:#1a1a1a;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:8px;
+color:#fff;
+transition:0.3s;
+}
+
+.footer-social a:hover{
+background:#ff0055;
+}
+
+/* NEWSLETTER */
+
+.newsletter-box{
+display:flex;
+margin:15px 0;
+}
+
+.newsletter-box input{
+flex:1;
+padding:12px;
+border:none;
+outline:none;
+background:#1a1a1a;
+color:#fff;
+}
+
+.newsletter-box button{
+padding:12px 20px;
+border:none;
+background:#ff0055;
+color:#fff;
+cursor:pointer;
+transition:0.3s;
+}
+
+.newsletter-box button:hover{
+background:#e0004d;
+}
+
+/* BOTTOM */
+
+.footer-bottom{
+background:#000;
+padding:20px 0;
+border-top:1px solid #222;
+}
+
+.bottom-flex{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.footer-links{
+display:flex;
+gap:20px;
+}
+
+.footer-links a{
+color:#ccc;
+text-decoration:none;
+font-size:14px;
+}
+
+.footer-links a:hover{
+color:#ff0055;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+.footer-top{
+grid-template-columns:1fr 1fr;
+}
+}
+
+@media(max-width:768px){
+.footer-top{
+grid-template-columns:1fr;
+}
+
+.bottom-flex{
+flex-direction:column;
+gap:10px;
+text-align:center;
+}
+}
+
+/* DARK MODE */
+
+body.dark .footer-top{
+background:#1a1a1a;
+}
+
+body.dark .stackly-footer{
+background:#000;
+}
+
+body.dark .footer-bottom{
+background:#0a0a0a;
+}
+
+/* ================= MOBILE HEADER FIX (same as index.html) ================= */
+
+@media(max-width:600px){
+
+.stackly-nav{
+padding:15px 20px;   /* reduces large header padding */
+}
+
+.stackly-logo img{
+height:45px;         /* smaller logo like index page */
+}
+
+}
+
+/* ================= HEADER GRID FIX ================= */
+
+@media(max-width:900px){
+
+.stackly-nav{
+display:grid;
+grid-template-columns:auto 1fr auto;
+align-items:center;
+}
+
+}
+
+/* ================= PRELOADER ================= */
+
+#preloader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:fadeOut 0.6s ease forwards;
+animation-delay:1.5s;
+}
+
+#preloader img{
+height:90px;
+animation:logoAnim 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes logoAnim{
+from{
+transform:scale(1);
+opacity:0.7;
+}
+to{
+transform:scale(1.1);
+opacity:1;
+}
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
+}
+}
+
+/* Hide page during preload */
+body.loading header,
+body.loading section,
+body.loading footer{
+opacity:0;
+visibility:hidden;
+}
+
+
+.stackly-nav{
+position:relative;
+}
+
+/* ================= DARK MODE FIX FOR TRENDING CARDS ================= */
+
+body.dark .contact-section{
+background:#111;
+}
+
+body.dark .contact-section h2{
+color:#fff;
+}
+
+body.dark .contact-section h3{
+color:#fff;
+}
+
+body.dark .contact-section p{
+color:#ccc !important;
+}
+
+/* News card background */
+body.dark .contact-section div[style*="background:#fff"]{
+background:#1a1a1a !important;
+box-shadow:0 10px 30px rgba(0,0,0,0.6) !important;
+}
+
+</style>
+</head>
+
+<body class="loading">
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <img src="assets/images/logo/stackly_logo.webp" alt="Stackly Logo">
+</div>
+
+<!-- HEADER -->
+
+<header class="stackly-header">
+<div class="stackly-nav">
+
+<div class="stackly-logo">
+<a href="homepage2.html">
+<img src="assets/images/logo/stackly_logo.webp">
+</a>
+</div>
+
+<nav class="stackly-menu" id="navMenu">
+<ul>
+
+<li class="dropdown">
+<span class="home-toggle">Home <i class="fa-solid fa-chevron-down"></i></span>
+<ul class="dropdown-menu">
+<li><a href="index.html">Home 1</a></li>
+<li><a href="homepage2.html">Home 2</a></li>
+</ul>
+</li>
+
+<li><a href="team.html">Team</a></li>
+<li><a href="lnews.html" style="color:#ff0055">Latest News</a></li>
+<li><a href="contact_2.html">Contact</a></li>
+<li><a href="dashboard_2.html">Dashboard</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="register.html">Register</a></li>
+
+</ul>
+</nav>
+
+<button id="themeToggle" class="theme-btn">
+<i class="fa-solid fa-moon icon-moon"></i>
+<i class="fa-solid fa-sun icon-sun"></i>
+</button>
+
+<div class="hamburger" id="hamburger">
+<i class="fa-solid fa-bars"></i>
+</div>
+
+</div>
+</header>
+
+<!-- HERO -->
+
+<section class="contact-hero">
+<div class="contact-hero-overlay"></div>
+
+<div class="contact-hero-content">
+<h1>Latest News</h1>
+<p>Discover the most recent updates and breaking stories happening around the world.</p>
+</div>
+
+</section>
+
+<section class="contact-section">
+
+<div class="container">
+
+<h2 style="text-align:center;margin-bottom:20px;font-size:36px">
+Latest Global Headlines
+</h2>
+
+<p style="text-align:center;color:#777;margin-bottom:60px;max-width:700px;margin-left:auto;margin-right:auto">
+Stay informed with the most recent developments from around the world. 
+Explore breaking updates in technology, politics, science, business, and global affairs.
+</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:35px">
+
+<!-- ARTICLE 1 -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.08)">
+<img src="assets/news-images/enter1.webp" style="width:100%;height:210px;object-fit:cover">
+<div style="padding:22px">
+
+<span style="color:#ff0055;font-size:12px;font-weight:bold">TECHNOLOGY • 5 MIN READ</span>
+
+<h3 style="margin:12px 0;font-size:20px">
+AI Innovation Accelerates Global Digital Transformation
+</h3>
+
+<p style="color:#666;font-size:14px;margin-bottom:15px">
+Leading technology companies are deploying advanced AI systems that are transforming industries, boosting productivity, and reshaping the future of work worldwide.
+</p>
+
+<a href="404_2.html" style="color:#ff0055;font-weight:bold">Read Full Story →</a>
+
+</div>
+</div>
+
+<!-- ARTICLE 2 -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.08)">
+<img src="assets/news-images/envir.webp" style="width:100%;height:210px;object-fit:cover">
+<div style="padding:22px">
+
+<span style="color:#ff0055;font-size:12px;font-weight:bold">WORLD • BREAKING</span>
+
+<h3 style="margin:12px 0;font-size:20px">
+Global Leaders Convene for Historic Climate Summit
+</h3>
+
+<p style="color:#666;font-size:14px;margin-bottom:15px">
+Presidents and prime ministers gather to negotiate new climate policies aimed at reducing global emissions and accelerating renewable energy adoption.
+</p>
+
+<a href="404_2.html" style="color:#ff0055;font-weight:bold">Read Full Story →</a>
+
+</div>
+</div>
+
+<!-- ARTICLE 3 -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.08)">
+<img src="assets/news-images/feature.webp" style="width:100%;height:210px;object-fit:cover">
+<div style="padding:22px">
+
+<span style="color:#ff0055;font-size:12px;font-weight:bold">BUSINESS • MARKETS</span>
+
+<h3 style="margin:12px 0;font-size:20px">
+Global Markets Surge as Investors Show Renewed Confidence
+</h3>
+
+<p style="color:#666;font-size:14px;margin-bottom:15px">
+Stock markets across Asia, Europe, and North America recorded strong gains as economic indicators suggest steady global recovery.
+</p>
+
+<a href="404_2.html" style="color:#ff0055;font-weight:bold">Read Full Story →</a>
+
+</div>
+</div>
+
+<!-- ARTICLE 4 -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.08)">
+<img src="assets/news-images/fit.webp" style="width:100%;height:210px;object-fit:cover">
+<div style="padding:22px">
+
+<span style="color:#ff0055;font-size:12px;font-weight:bold">SCIENCE • RESEARCH</span>
+
+<h3 style="margin:12px 0;font-size:20px">
+Scientists Discover Breakthrough in Cancer Treatment
+</h3>
+
+<p style="color:#666;font-size:14px;margin-bottom:15px">
+A global team of researchers unveiled a promising medical therapy that could significantly improve survival rates for certain types of cancer.
+</p>
+
+<a href="404_2.html" style="color:#ff0055;font-weight:bold">Read Full Story →</a>
+
+</div>
+</div>
+
+<!-- ARTICLE 5 -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.08)">
+<img src="assets/news-images/globalstock.webp" style="width:100%;height:210px;object-fit:cover">
+<div style="padding:22px">
+
+<span style="color:#ff0055;font-size:12px;font-weight:bold">ENTERTAINMENT • STREAMING</span>
+
+<h3 style="margin:12px 0;font-size:20px">
+Streaming Platforms Achieve Record Global Viewership
+</h3>
+
+<p style="color:#666;font-size:14px;margin-bottom:15px">
+Major streaming services reported unprecedented audience engagement following several high-profile global releases.
+</p>
+
+<a href="404_2.html" style="color:#ff0055;font-weight:bold">Read Full Story →</a>
+
+</div>
+</div>
+
+<!-- ARTICLE 6 -->
+<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.08)">
+<img src="assets/news-images/green.webp" style="width:100%;height:210px;object-fit:cover">
+<div style="padding:22px">
+
+<span style="color:#ff0055;font-size:12px;font-weight:bold">SPORTS • INTERNATIONAL</span>
+
+<h3 style="margin:12px 0;font-size:20px">
+International Championship Draws Global Attention
+</h3>
+
+<p style="color:#666;font-size:14px;margin-bottom:15px">
+Millions of fans worldwide prepare for the highly anticipated international tournament set to begin this weekend.
+</p>
+
+<a href="404_2.html" style="color:#ff0055;font-weight:bold">Read Full Story →</a>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= STACKLY FOOTER ================= -->
+<footer class="stackly-footer">
+
+  <div class="footer-top container">
+
+    <!-- ABOUT -->
+    <div class="footer-col footer-about">
+      <a href="homepage2.html">
+        <img src="assets/images/logo/stackly_logo.webp" alt="Stackly Logo">
+      </a>
+
+      <p>
+        Stackly delivers modern, powerful news and magazine content 
+        covering politics, entertainment, business and global trends.
+      </p>
+
+      <div class="footer-social">
+        <a href="404_2.html"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404_2.html"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404_2.html"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="404_2.html"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+
+    <!-- QUICK LINKS -->
+<div class="footer-col">
+  <h3>Quick Links</h3>
+  <ul>
+    <li><a href="homepage2.html">Home</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="lnews.html">Latest News</a></li>
+    <li><a href="contact_2.html">Contact</a></li>
+    <li><a href="dashboard_2.html">Dashboard</a></li>
+  </ul>
+</div>
+
+    <!-- CATEGORIES -->
+    <div class="footer-col">
+      <h3>Categories</h3>
+      <ul>
+        <li><a href="404_2.html">Politics</a></li>
+        <li><a href="404_2.html">Entertainment</a></li>
+        <li><a href="404_2.html">Business</a></li>
+        <li><a href="404_2.html">Technology</a></li>
+        <li><a href="404_2.html">Sports</a></li>
+        <li><a href="404_2.html">Fashion</a></li>
+      </ul>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="footer-col">
+      <h3>Newsletter</h3>
+      <p>Subscribe to receive latest Stackly news updates.</p>
+
+<form class="newsletter-box" id="newsletterForm">
+  <input 
+    type="email" 
+    id="newsletterEmail" 
+    placeholder="Your Email" 
+    required
+  >
+  <button type="submit">Subscribe</button>
+</form>
+
+<small id="newsletterMsg" style="color:#ff4d4d; display:none; margin-top:8px;">
+  Please enter a valid email address.
+</small>
+
+      <small>We respect your privacy.</small>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="footer-bottom">
+    <div class="container bottom-flex">
+      <p>© 2026 Stackly News. All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="404_2.html">Privacy Policy</a>
+        <a href="404_2.html">Terms & Conditions</a>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<script>
+
+document.getElementById("themeToggle").onclick=function(){
+document.body.classList.toggle("dark");
+}
+
+</script>
+
+<script>
+
+// NEWSLETTER VALIDATION
+const newsletterForm = document.getElementById("newsletterForm");
+const newsletterEmail = document.getElementById("newsletterEmail");
+const newsletterMsg = document.getElementById("newsletterMsg");
+
+newsletterForm.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const emailValue = newsletterEmail.value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if(!emailPattern.test(emailValue)){
+    newsletterMsg.style.display = "block";
+    newsletterEmail.style.border = "2px solid #ff0055";
+    return;
+  }
+
+  newsletterMsg.style.display = "none";
+  newsletterEmail.style.border = "none";
+
+  window.location.href = "404.html";
+});
+
+</script>
+
+<script>
+
+// CONTACT FORM VALIDATION
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+// simple validation already handled by required fields
+
+// redirect to 404 page
+window.location.href = "404.html";
+
+});
+
+</script>
+
+<script>
+
+// HAMBURGER MENU
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.addEventListener("click", function(){
+  navMenu.classList.toggle("active");
+});
+
+// DROPDOWN MENU
+const homeToggle = document.querySelector(".home-toggle");
+const dropdown = document.querySelector(".dropdown");
+
+homeToggle.addEventListener("click", function(e){
+  e.stopPropagation();
+  dropdown.classList.toggle("active");
+});
+
+// CLOSE DROPDOWN WHEN CLICK OUTSIDE
+document.addEventListener("click", function(e){
+  if(!dropdown.contains(e.target)){
+    dropdown.classList.remove("active");
+  }
+});
+
+</script>
+
+<script>
+
+// Force preloader max 1.5s
+window.addEventListener("load", function(){
+
+setTimeout(function(){
+
+document.getElementById("preloader").style.display = "none";
+document.body.classList.remove("loading");
+
+},1500);
+
+});
+
+</script>
+
+</body>
+</html>
