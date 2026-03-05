@@ -237,8 +237,16 @@ color:#ddd;
 /* CONTACT */
 
 .contact-section{
-padding:80px 6%;
+padding:70px 6%;
 background:#fff;
+}
+
+@media(max-width:600px){
+
+.contact-section{
+padding:40px 16px;
+}
+
 }
 
 .contact-grid{
@@ -728,6 +736,146 @@ background:#1a1a1a !important;
 box-shadow:0 10px 30px rgba(0,0,0,0.6) !important;
 }
 
+/* ================= TRENDING NEWS CARDS ================= */
+
+.trending-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+}
+
+@media(max-width:600px){
+
+.trending-grid{
+grid-template-columns:1fr;
+gap:22px;
+}
+
+}
+
+.tnews-card{
+background:#fff;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 12px 35px rgba(0,0,0,0.08);
+display:flex;
+flex-direction:column;
+transition:0.3s;
+}
+
+.tnews-card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 45px rgba(0,0,0,0.15);
+}
+
+.tnews-img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.tnews-content{
+padding:20px;
+display:flex;
+flex-direction:column;
+flex:1;
+}
+
+.tnews-category{
+color:#ff0055;
+font-size:12px;
+font-weight:bold;
+letter-spacing:.5px;
+}
+
+.tnews-title{
+margin:10px 0;
+font-size:20px;
+line-height:1.4;
+}
+
+.tnews-desc{
+color:#666;
+font-size:14px;
+margin-bottom:16px;
+flex-grow:1;
+}
+
+@media(max-width:600px){
+
+.tnews-card{
+border-radius:12px;
+}
+
+.tnews-img{
+height:170px;
+}
+
+.tnews-title{
+font-size:18px;
+line-height:1.35;
+}
+
+}
+
+/* BUTTON */
+
+.tnews-btn{
+display:inline-block;
+padding:10px 18px;
+border-radius:30px;
+background:#ff0055;
+color:#fff;
+font-size:13px;
+font-weight:bold;
+align-self:flex-start;
+transition:.25s;
+}
+
+.tnews-btn:hover{
+background:#e0004d;
+transform:translateY(-2px);
+box-shadow:0 8px 18px rgba(255,0,85,0.35);
+}
+
+/* DARK MODE */
+
+body.dark .tnews-card{
+background:#1a1a1a;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+body.dark .tnews-desc{
+color:#bbb;
+}
+
+/* MOBILE FIX */
+
+@media(max-width:600px){
+
+.tnews-img{
+height:180px;
+}
+
+.tnews-content{
+padding:18px;
+}
+
+.tnews-title{
+font-size:18px;
+}
+
+.tnews-desc{
+font-size:14px;
+}
+
+.tnews-btn{
+padding:9px 16px;
+font-size:12px;
+}
+
+}
+
 </style>
 </head>
 
@@ -801,72 +949,156 @@ box-shadow:0 10px 30px rgba(0,0,0,0.6) !important;
 Trending Stories
 </h2>
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px">
+<div class="trending-grid">
 
 <!-- NEWS CARD 1 -->
-<div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08)">
-<img src="assets/news-images/image1.webp" style="width:100%;height:200px;object-fit:cover">
-<div style="padding:20px">
-<span style="color:#ff0055;font-size:12px">TECHNOLOGY</span>
-<h3 style="margin:10px 0">AI Revolution Changing Global Industries</h3>
-<p style="color:#666;font-size:14px">Artificial intelligence continues to transform how businesses operate worldwide.</p>
-<a href="404.html" style="color:#ff0055;font-weight:bold">Read More →</a>
+<div class="tnews-card">
+
+<img src="assets/news-images/image1.webp" class="tnews-img">
+
+<div class="tnews-content">
+
+<span class="tnews-category">TECHNOLOGY</span>
+
+<h3 class="tnews-title">
+AI Revolution Changing Global Industries
+</h3>
+
+<p class="tnews-desc">
+Artificial intelligence continues to transform how businesses operate worldwide.
+</p>
+
+<a href="404.html" class="tnews-btn">
+Read Full Story
+</a>
+
 </div>
+
 </div>
 
 <!-- NEWS CARD 2 -->
-<div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08)">
-<img src="assets/news-images/image2.webp" style="width:100%;height:200px;object-fit:cover">
-<div style="padding:20px">
-<span style="color:#ff0055;font-size:12px">BUSINESS</span>
-<h3 style="margin:10px 0">Global Markets Hit New Record Highs</h3>
-<p style="color:#666;font-size:14px">Investors celebrate strong market performance across major economies.</p>
-<a href="404.html" style="color:#ff0055;font-weight:bold">Read More →</a>
+<div class="tnews-card">
+
+<img src="assets/news-images/image2.webp" class="tnews-img">
+
+<div class="tnews-content">
+
+<span class="tnews-category">BUSINESS</span>
+
+<h3 class="tnews-title">
+Global Markets Hit New Record Highs
+</h3>
+
+<p class="tnews-desc">
+Investors celebrate strong market performance across major economies.
+</p>
+
+<a href="404.html" class="tnews-btn">
+Read Full Story
+</a>
+
 </div>
+
 </div>
 
 <!-- NEWS CARD 3 -->
-<div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08)">
-<img src="assets/news-images/image3.webp" style="width:100%;height:200px;object-fit:cover">
-<div style="padding:20px">
-<span style="color:#ff0055;font-size:12px">POLITICS</span>
-<h3 style="margin:10px 0">New Policies Shape Global Trade</h3>
-<p style="color:#666;font-size:14px">International leaders discuss economic reforms and trade cooperation.</p>
-<a href="404.html" style="color:#ff0055;font-weight:bold">Read More →</a>
+<div class="tnews-card">
+
+<img src="assets/news-images/image3.webp" class="tnews-img">
+
+<div class="tnews-content">
+
+<span class="tnews-category">POLITICS</span>
+
+<h3 class="tnews-title">
+New Policies Shape Global Trade
+</h3>
+
+<p class="tnews-desc">
+International leaders discuss economic reforms and trade cooperation.
+</p>
+
+<a href="404.html" class="tnews-btn">
+Read Full Story
+</a>
+
 </div>
+
 </div>
 
 <!-- NEWS CARD 4 -->
-<div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08)">
-<img src="assets/news-images/image4.webp" style="width:100%;height:200px;object-fit:cover">
-<div style="padding:20px">
-<span style="color:#ff0055;font-size:12px">ENTERTAINMENT</span>
-<h3 style="margin:10px 0">Film Industry Breaks Streaming Records</h3>
-<p style="color:#666;font-size:14px">Major streaming platforms see record-breaking audience engagement.</p>
-<a href="404.html" style="color:#ff0055;font-weight:bold">Read More →</a>
+<div class="tnews-card">
+
+<img src="assets/news-images/image4.webp" class="tnews-img">
+
+<div class="tnews-content">
+
+<span class="tnews-category">ENTERTAINMENT</span>
+
+<h3 class="tnews-title">
+Film Industry Breaks Streaming Records
+</h3>
+
+<p class="tnews-desc">
+Major streaming platforms see record-breaking audience engagement.
+</p>
+
+<a href="404.html" class="tnews-btn">
+Read Full Story
+</a>
+
 </div>
+
 </div>
 
 <!-- NEWS CARD 5 -->
-<div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08)">
-<img src="assets/news-images/image5.webp" style="width:100%;height:200px;object-fit:cover">
-<div style="padding:20px">
-<span style="color:#ff0055;font-size:12px">SCIENCE</span>
-<h3 style="margin:10px 0">NASA Announces New Space Mission</h3>
-<p style="color:#666;font-size:14px">Scientists prepare for the next generation of deep space exploration.</p>
-<a href="404.html" style="color:#ff0055;font-weight:bold">Read More →</a>
+<div class="tnews-card">
+
+<img src="assets/news-images/image5.webp" class="tnews-img">
+
+<div class="tnews-content">
+
+<span class="tnews-category">SCIENCE</span>
+
+<h3 class="tnews-title">
+NASA Announces New Space Mission
+</h3>
+
+<p class="tnews-desc">
+Scientists prepare for the next generation of deep space exploration.
+</p>
+
+<a href="404.html" class="tnews-btn">
+Read Full Story
+</a>
+
 </div>
+
 </div>
 
 <!-- NEWS CARD 6 -->
-<div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08)">
-<img src="assets/news-images/image6.webp" style="width:100%;height:200px;object-fit:cover">
-<div style="padding:20px">
-<span style="color:#ff0055;font-size:12px">SPORTS</span>
-<h3 style="margin:10px 0">Championship Finals Break Viewership Records</h3>
-<p style="color:#666;font-size:14px">Millions tune in globally for the biggest sports event of the year.</p>
-<a href="404.html" style="color:#ff0055;font-weight:bold">Read More →</a>
+<div class="tnews-card">
+
+<img src="assets/news-images/image6.webp" class="tnews-img">
+
+<div class="tnews-content">
+
+<span class="tnews-category">SPORTS</span>
+
+<h3 class="tnews-title">
+Championship Finals Break Viewership Records
+</h3>
+
+<p class="tnews-desc">
+Millions tune in globally for the biggest sports event of the year.
+</p>
+
+<a href="404.html" class="tnews-btn">
+Read Full Story
+</a>
+
 </div>
+
 </div>
 
 </div>

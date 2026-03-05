@@ -728,6 +728,153 @@ background:#1a1a1a !important;
 box-shadow:0 10px 30px rgba(0,0,0,0.6) !important;
 }
 
+/* ================= NEWS CARDS ================= */
+
+.news-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
+}
+
+.news-card{
+background:#fff;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 15px 35px rgba(0,0,0,0.08);
+display:flex;
+flex-direction:column;
+transition:0.3s;
+}
+
+.news-card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 45px rgba(0,0,0,0.15);
+}
+
+.news-img{
+width:100%;
+height:210px;
+object-fit:cover;
+}
+
+.news-content{
+padding:22px;
+display:flex;
+flex-direction:column;
+flex:1;
+}
+
+.news-category{
+color:#ff0055;
+font-size:12px;
+font-weight:bold;
+letter-spacing:.5px;
+}
+
+.news-title{
+margin:12px 0;
+font-size:20px;
+line-height:1.4;
+}
+
+.news-desc{
+color:#666;
+font-size:14px;
+margin-bottom:16px;
+flex-grow:1;
+}
+
+/* PROFESSIONAL BUTTON */
+
+.news-btn{
+display:inline-block;
+padding:10px 18px;
+border-radius:30px;
+background:#ff0055;
+color:#fff;
+font-size:13px;
+font-weight:bold;
+align-self:flex-start;
+transition:0.25s;
+}
+
+.news-btn:hover{
+background:#e0004d;
+transform:translateY(-2px);
+box-shadow:0 8px 18px rgba(255,0,85,0.35);
+}
+
+/* DARK MODE */
+
+body.dark .news-card{
+background:#1a1a1a;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+body.dark .news-desc{
+color:#bbb;
+}
+
+@media(max-width:600px){
+
+.stackly-header{
+padding:10px 0;
+}
+
+.stackly-nav{
+padding:12px 18px;
+border-radius:40px;
+}
+
+.stackly-logo img{
+height:40px;
+}
+
+.theme-btn{
+width:38px;
+height:38px;
+font-size:14px;
+}
+
+.hamburger{
+font-size:20px;
+}
+
+}
+
+/* MOBILE NEWS FIX */
+
+@media(max-width:600px){
+
+.news-grid{
+grid-template-columns:1fr;
+gap:25px;
+}
+
+.news-img{
+height:180px;
+}
+
+.news-content{
+padding:18px;
+}
+
+.news-title{
+font-size:18px;
+}
+
+.news-desc{
+font-size:14px;
+margin-bottom:16px;
+}
+
+.news-btn{
+padding:9px 16px;
+font-size:12px;
+}
+
+}
+
 </style>
 </head>
 
@@ -807,126 +954,155 @@ Stay informed with the most recent developments from around the world.
 Explore breaking updates in technology, politics, science, business, and global affairs.
 </p>
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:35px">
+<div class="news-grid">
 
 <!-- ARTICLE 1 -->
-<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.08)">
-<img src="assets/news-images/enter1.webp" style="width:100%;height:210px;object-fit:cover">
-<div style="padding:22px">
+<div class="news-card">
 
-<span style="color:#ff0055;font-size:12px;font-weight:bold">TECHNOLOGY • 5 MIN READ</span>
+<img src="assets/news-images/enter1.webp" class="news-img">
 
-<h3 style="margin:12px 0;font-size:20px">
+<div class="news-content">
+
+<span class="news-category">TECHNOLOGY • 5 MIN READ</span>
+
+<h3 class="news-title">
 AI Innovation Accelerates Global Digital Transformation
 </h3>
 
-<p style="color:#666;font-size:14px;margin-bottom:15px">
+<p class="news-desc">
 Leading technology companies are deploying advanced AI systems that are transforming industries, boosting productivity, and reshaping the future of work worldwide.
 </p>
 
-<a href="404_2.html" style="color:#ff0055;font-weight:bold">Read Full Story →</a>
+<a href="404_2.html" class="news-btn">
+Read Full Story
+</a>
 
 </div>
+
 </div>
 
 <!-- ARTICLE 2 -->
-<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.08)">
-<img src="assets/news-images/envir.webp" style="width:100%;height:210px;object-fit:cover">
-<div style="padding:22px">
+<div class="news-card">
 
-<span style="color:#ff0055;font-size:12px;font-weight:bold">WORLD • BREAKING</span>
+<img src="assets/news-images/envir.webp" class="news-img">
 
-<h3 style="margin:12px 0;font-size:20px">
+<div class="news-content">
+
+<span class="news-category">WORLD • BREAKING</span>
+
+<h3 class="news-title">
 Global Leaders Convene for Historic Climate Summit
 </h3>
 
-<p style="color:#666;font-size:14px;margin-bottom:15px">
+<p class="news-desc">
 Presidents and prime ministers gather to negotiate new climate policies aimed at reducing global emissions and accelerating renewable energy adoption.
 </p>
 
-<a href="404_2.html" style="color:#ff0055;font-weight:bold">Read Full Story →</a>
+<a href="404_2.html" class="news-btn">
+Read Full Story
+</a>
 
 </div>
+
 </div>
 
 <!-- ARTICLE 3 -->
-<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.08)">
-<img src="assets/news-images/feature.webp" style="width:100%;height:210px;object-fit:cover">
-<div style="padding:22px">
+<div class="news-card">
 
-<span style="color:#ff0055;font-size:12px;font-weight:bold">BUSINESS • MARKETS</span>
+<img src="assets/news-images/feature.webp" class="news-img">
 
-<h3 style="margin:12px 0;font-size:20px">
+<div class="news-content">
+
+<span class="news-category">BUSINESS • MARKETS</span>
+
+<h3 class="news-title">
 Global Markets Surge as Investors Show Renewed Confidence
 </h3>
 
-<p style="color:#666;font-size:14px;margin-bottom:15px">
-Stock markets across Asia, Europe, and North America recorded strong gains as economic indicators suggest steady global recovery.
+<p class="news-desc">Stock markets across Asia, Europe, and North America recorded strong gains as economic indicators suggest steady global recovery.
 </p>
 
-<a href="404_2.html" style="color:#ff0055;font-weight:bold">Read Full Story →</a>
+<a href="404_2.html" class="news-btn">
+Read Full Story
+</a>
 
 </div>
+
 </div>
 
 <!-- ARTICLE 4 -->
-<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.08)">
-<img src="assets/news-images/fit.webp" style="width:100%;height:210px;object-fit:cover">
-<div style="padding:22px">
+<div class="news-card">
 
-<span style="color:#ff0055;font-size:12px;font-weight:bold">SCIENCE • RESEARCH</span>
+<img src="assets/news-images/fit.webp" class="news-img">
 
-<h3 style="margin:12px 0;font-size:20px">
+<div class="news-content">
+
+<span class="news-category">SCIENCE • RESEARCH</span>
+
+<h3 class="news-title">
 Scientists Discover Breakthrough in Cancer Treatment
 </h3>
 
-<p style="color:#666;font-size:14px;margin-bottom:15px">
+<p class="news-desc">
 A global team of researchers unveiled a promising medical therapy that could significantly improve survival rates for certain types of cancer.
 </p>
 
-<a href="404_2.html" style="color:#ff0055;font-weight:bold">Read Full Story →</a>
+<a href="404_2.html" class="news-btn">
+Read Full Story
+</a>
 
 </div>
+
 </div>
 
 <!-- ARTICLE 5 -->
-<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.08)">
-<img src="assets/news-images/globalstock.webp" style="width:100%;height:210px;object-fit:cover">
-<div style="padding:22px">
+<div class="news-card">
 
-<span style="color:#ff0055;font-size:12px;font-weight:bold">ENTERTAINMENT • STREAMING</span>
+<img src="assets/news-images/globalstock.webp" class="news-img">
 
-<h3 style="margin:12px 0;font-size:20px">
+<div class="news-content">
+
+<span class="news-category">ENTERTAINMENT • STREAMING</span>
+
+<h3 class="news-title">
 Streaming Platforms Achieve Record Global Viewership
 </h3>
 
-<p style="color:#666;font-size:14px;margin-bottom:15px">
+<p class="news-desc">
 Major streaming services reported unprecedented audience engagement following several high-profile global releases.
 </p>
 
-<a href="404_2.html" style="color:#ff0055;font-weight:bold">Read Full Story →</a>
+<a href="404_2.html" class="news-btn">
+Read Full Story
+</a>
 
 </div>
+
 </div>
 
 <!-- ARTICLE 6 -->
-<div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.08)">
-<img src="assets/news-images/green.webp" style="width:100%;height:210px;object-fit:cover">
-<div style="padding:22px">
+<div class="news-card">
 
-<span style="color:#ff0055;font-size:12px;font-weight:bold">SPORTS • INTERNATIONAL</span>
+<img src="assets/news-images/green.webp" class="news-img">
 
-<h3 style="margin:12px 0;font-size:20px">
+<div class="news-content">
+
+<span class="news-category">SPORTS • INTERNATIONAL</span>
+
+<h3 class="news-title">
 International Championship Draws Global Attention
 </h3>
 
-<p style="color:#666;font-size:14px;margin-bottom:15px">
+<p class="news-desc">
 Millions of fans worldwide prepare for the highly anticipated international tournament set to begin this weekend.
 </p>
 
-<a href="404_2.html" style="color:#ff0055;font-weight:bold">Read Full Story →</a>
+<a href="404_2.html" class="news-btn">
+Read Full Story
+</a>
 
 </div>
+
 </div>
 
 </div>

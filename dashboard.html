@@ -1182,14 +1182,19 @@ color:inherit;
 /* ================= FIXED HEADER CLEAN ================= */
 
 .stackly-header{
-position:sticky;
+position:fixed;
 top:0;
+left:0;
+width:100%;
 z-index:9999;
 display:flex;
 justify-content:center;
-padding:15px 0; /* reduced from 25px */
+padding:15px 0;
 background:#f5f5f5;
-margin:0; /* IMPORTANT */
+}
+
+body{
+padding-top:90px;
 }
 
 .home-toggle i{
@@ -1714,6 +1719,29 @@ transform-origin:70% 70%;
 100%{transform:rotate(0deg)}
 }
 
+/* ===== MOBILE TABLE FIX ===== */
+
+.table-wrapper{
+overflow-x:auto;
+}
+
+.activity-table table{
+width:100%;
+min-width:500px;
+border-collapse:collapse;
+}
+
+.activity-table th,
+.activity-table td{
+padding:12px;
+text-align:left;
+white-space:nowrap;
+}
+
+.chart-card{
+margin-top:30px;
+}
+
 </style>
 </head>
 
@@ -1806,17 +1834,101 @@ transform-origin:70% 70%;
 </section>
 
 <!-- CHARTS -->
+<!-- ================= ADVANCED ANALYTICS ================= -->
+
 <section class="chart-section">
-    <div class="chart-grid">
-        <div class="chart-card">
-            <h3>Monthly Analytics</h3>
-            <canvas id="lineChart"></canvas>
-        </div>
-        <div class="chart-card">
-            <h3>User Distribution</h3>
-            <canvas id="doughnutChart"></canvas>
-        </div>
-    </div>
+
+<div class="container">
+
+<div class="chart-grid">
+
+<!-- TRAFFIC LINE CHART -->
+<div class="chart-card">
+<h3>Traffic Growth</h3>
+<canvas id="trafficChart"></canvas>
+</div>
+
+<!-- USER DEVICE CHART -->
+<div class="chart-card">
+<h3>User Devices</h3>
+<canvas id="deviceChart"></canvas>
+</div>
+
+</div>
+
+
+<div class="chart-grid" style="margin-top:30px">
+
+<!-- REVENUE BAR CHART -->
+<div class="chart-card">
+<h3>Revenue Overview</h3>
+<canvas id="revenueChart"></canvas>
+</div>
+
+<!-- CONTENT PERFORMANCE -->
+<div class="chart-card">
+<h3>Top Categories</h3>
+<canvas id="categoryChart"></canvas>
+</div>
+
+</div>
+
+
+<!-- ================= ACTIVITY TABLE ================= -->
+
+<div class="chart-card activity-table">
+
+<h3 style="margin-bottom:20px">Recent Platform Activity</h3>
+
+<div class="table-wrapper">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+
+<thead>
+<tr style="text-align:left;border-bottom:1px solid #ddd">
+<th style="padding:12px">User</th>
+<th style="padding:12px">Action</th>
+<th style="padding:12px">Category</th>
+<th style="padding:12px">Time</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr style="border-bottom:1px solid #eee">
+<td style="padding:12px">John Smith</td>
+<td style="padding:12px">Published Article</td>
+<td style="padding:12px">Technology</td>
+<td style="padding:12px">2 min ago</td>
+</tr>
+
+<tr style="border-bottom:1px solid #eee">
+<td style="padding:12px">Anna Brown</td>
+<td style="padding:12px">Updated News</td>
+<td style="padding:12px">Politics</td>
+<td style="padding:12px">10 min ago</td>
+</tr>
+
+<tr style="border-bottom:1px solid #eee">
+<td style="padding:12px">Michael Lee</td>
+<td style="padding:12px">New Comment</td>
+<td style="padding:12px">Business</td>
+<td style="padding:12px">22 min ago</td>
+</tr>
+
+<tr>
+<td style="padding:12px">Emily Clark</td>
+<td style="padding:12px">Uploaded Video</td>
+<td style="padding:12px">Entertainment</td>
+<td style="padding:12px">1 hr ago</td>
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
 </section>
 
 <!-- ================= STACKLY FOOTER ================= -->
@@ -2053,49 +2165,85 @@ window.addEventListener("load",()=>{
 /* CHARTS */
 document.addEventListener("DOMContentLoaded",function(){
 
-const lineCanvas = document.getElementById("lineChart");
-const doughnutCanvas = document.getElementById("doughnutChart");
-
-if(lineCanvas){
-
-new Chart(lineCanvas,{
-    type:'line',
-    data:{
-        labels:['Jan','Feb','Mar','Apr','May','Jun'],
-        datasets:[{
-            data:[1200,1900,3000,2500,4200,5200],
-            borderColor:'#ff0055',
-            backgroundColor:'rgba(255,0,85,0.2)',
-            tension:0.4,
-            fill:true
-        }]
-    },
-    options:{
-        responsive:true,
-        plugins:{legend:{display:false}}
-    }
+/* TRAFFIC CHART */
+new Chart(document.getElementById("trafficChart"),{
+type:'line',
+data:{
+labels:['Jan','Feb','Mar','Apr','May','Jun','Jul'],
+datasets:[{
+label:'Visitors',
+data:[1200,1900,3000,2500,4200,5200,6100],
+borderColor:'#ff0055',
+backgroundColor:'rgba(255,0,85,0.15)',
+fill:true,
+tension:0.4
+}]
+},
+options:{plugins:{legend:{display:false}}}
 });
 
+
+/* DEVICE CHART (HORIZONTAL BAR) */
+new Chart(document.getElementById("deviceChart"),{
+type:'bar',
+data:{
+labels:['Desktop','Mobile','Tablet'],
+datasets:[{
+label:'Users %',
+data:[55,35,10],
+backgroundColor:[
+'#ff0055',
+'#ff4d88',
+'#ff99bb'
+],
+borderRadius:8
+}]
+},
+options:{
+indexAxis:'y',   // makes it horizontal
+plugins:{
+legend:{display:false}
+},
+scales:{
+x:{
+grid:{display:false},
+ticks:{color:'#888'}
+},
+y:{
+grid:{display:false},
+ticks:{color:'#888'}
 }
-
-if(doughnutCanvas){
-
-new Chart(doughnutCanvas,{
-    type:'doughnut',
-    data:{
-        labels:['Desktop','Mobile','Tablet'],
-        datasets:[{
-            data:[55,35,10],
-            backgroundColor:['#ff0055','#ff4d88','#ff99bb']
-        }]
-    },
-    options:{
-        responsive:true,
-        plugins:{legend:{display:false}}
-    }
+}
+}
 });
 
-}
+/* REVENUE CHART */
+new Chart(document.getElementById("revenueChart"),{
+type:'bar',
+data:{
+labels:['Jan','Feb','Mar','Apr','May','Jun'],
+datasets:[{
+label:'Revenue',
+data:[12000,19000,15000,22000,28000,32000],
+backgroundColor:'#ff0055'
+}]
+},
+options:{plugins:{legend:{display:false}}}
+});
+
+
+/* CATEGORY CHART */
+new Chart(document.getElementById("categoryChart"),{
+type:'pie',
+data:{
+labels:['Technology','Business','Politics','Sports'],
+datasets:[{
+data:[35,25,20,20],
+backgroundColor:['#ff0055','#ff4d88','#ff99bb','#ffccd9']
+}]
+},
+options:{plugins:{legend:{position:'bottom'}}}
+});
 
 });
 

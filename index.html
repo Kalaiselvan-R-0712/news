@@ -470,11 +470,28 @@ width:100%;
 filter:brightness(0.7);
 }
 
-.video-overlay{
-position:absolute;
-bottom:0;
-left:0;
-padding:30px;
+.video-overlay p{
+font-size:14px;
+color:#ddd;
+margin-top:8px;
+max-width:520px;
+}
+
+.watch-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+background:#00ff88;
+color:#000;
+padding:10px 18px;
+border-radius:30px;
+font-weight:bold;
+font-size:13px;
+transition:0.3s;
+}
+
+.watch-btn:hover{
+transform:scale(1.05);
 }
 
 .video-overlay h2{
@@ -1518,6 +1535,107 @@ opacity:1;
 transform:translateY(0);
 }
 
+.hero-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+background:#ff0055;
+color:#fff;
+padding:12px 22px;
+font-size:14px;
+font-weight:600;
+border-radius:40px;
+transition:0.3s ease;
+}
+
+.hero-btn:hover{
+background:#e0004d;
+transform:translateY(-2px);
+}
+
+.feature-overlay p{
+font-size:13px;
+margin-top:8px;
+color:#ddd;
+}
+
+.feature-btn{
+display:inline-block;
+margin-top:10px;
+font-size:13px;
+color:#00ff88;
+font-weight:bold;
+}
+
+.card-actions{
+display:flex;
+gap:10px;
+margin-top:15px;
+align-items:center;
+}
+
+.action-row{
+display:flex;
+align-items:center;
+gap:12px;
+margin-top:16px;
+flex-wrap:nowrap;
+}
+
+.action-row a{
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.card-btn{
+background:#ff0055;
+color:#fff;
+padding:8px 16px;
+border-radius:25px;
+font-size:13px;
+font-weight:600;
+transition:0.3s;
+}
+
+.card-btn:hover{
+background:#e0004d;
+transform:translateY(-2px);
+}
+
+.icon-btn{
+background:rgba(255,255,255,0.18);
+color:#fff;
+width:38px;
+height:38px;
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-decoration:none;
+transition:0.3s ease;
+flex-shrink:0;
+}
+
+.icon-btn i{
+font-size:14px;
+}
+
+.icon-btn:hover{
+background:#00ff88;
+color:#000;
+transform:scale(1.08);
+}
+
+.hero-btn,
+.watch-btn{
+height:38px;
+display:flex;
+align-items:center;
+}
+
 </style>
 </head>
 
@@ -1639,8 +1757,31 @@ Celebrity summer photos that broke the internet
 
 <div class="hero-overlay">
 <span style="color:#00ff88;font-size:12px;">POLITICS • 6 years ago</span>
+
 <h1>Illinois Financial Crisis Fallout</h1>
-<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+
+<p>
+A deep analysis of the economic challenges impacting Illinois, 
+including policy debates, market reactions and the future outlook 
+for businesses and citizens across the state.
+</p>
+
+<div class="action-row">
+
+<a href="404.html" class="hero-btn">
+Read Full Story →
+</a>
+
+<a href="404.html" class="icon-btn">
+<i class="fa-solid fa-bookmark"></i>
+</a>
+
+<a href="404.html" class="icon-btn">
+<i class="fa-solid fa-share-nodes"></i>
+</a>
+
+</div>
+
 </div>
 
 </div>
@@ -1734,18 +1875,56 @@ Advertisement
 <div class="feature-overlay">
 <span class="feature-cat">FASHION • 6 years ago</span>
 <h2>These '90s fashion trends are making a comeback</h2>
+
+<p>
+Vintage fashion is returning stronger than ever. 
+Designers are embracing classic denim, oversized 
+jackets and retro color palettes inspired by the 90s era.
+</p>
+
+<a href="404.html" class="feature-btn">
+Explore Article →
+</a>
+
 </div>
 
 </div>
 
 <div class="feature-card small">
+
 <img src="assets/news-images/image6.webp">
+
 <div class="feature-overlay">
+
 <span class="feature-cat">ENTERTAINMENT • 6 years ago</span>
+
 <h3>'Better Call Saul' renewed for fourth season</h3>
-</div>
+
+<p>
+AMC officially confirms the fourth season of the critically acclaimed 
+Breaking Bad spin-off series. The new season will explore deeper 
+character arcs, darker conflicts and the evolution of Jimmy McGill 
+into the infamous Saul Goodman.
+</p>
+
+<div class="card-actions">
+
+<a href="404.html" class="card-btn">
+Read Full Story
+</a>
+
+<a href="404.html" class="icon-btn">
+<i class="fa-solid fa-bookmark"></i>
+</a>
+
+<a href="404.html" class="icon-btn">
+<i class="fa-solid fa-share-nodes"></i>
+</a>
+
 </div>
 
+</div>
+</div>
 </div>
 
 <!-- RIGHT LATEST CONTINUED -->
@@ -1790,9 +1969,34 @@ Advertisement
 </video>
 
 <div class="ent-overlay">
-  <span class="ent-cat">ENTERTAINMENT • 6 years ago</span>
-  <h2>Final 'Game of Thrones' Episodes</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+<span class="ent-cat">ENTERTAINMENT • 6 years ago</span>
+
+<h2>Final 'Game of Thrones' Episodes</h2>
+
+<p>
+The legendary HBO fantasy series approaches its epic conclusion. 
+Fans across the world are preparing for intense battles, shocking 
+twists and the final fight for the Iron Throne in the most 
+anticipated episodes of the decade.
+</p>
+
+<div class="card-actions">
+
+<a href="404.html" class="card-btn">
+Read Article
+</a>
+
+<a href="404.html" class="icon-btn">
+<i class="fa-solid fa-bookmark"></i>
+</a>
+
+<a href="404.html" class="icon-btn">
+<i class="fa-solid fa-share-nodes"></i>
+</a>
+
+</div>
+
 </div>
 
 </div>
@@ -1866,10 +2070,35 @@ Advertisement
     Your browser does not support the video tag.
   </video>
 
-  <div class="video-overlay">
-            <span class="video-meta">ENTERTAINMENT • 6 years ago</span>
-            <h2>Mod turns 'Counter-Strike' into a 'Tekken' clone with fighting chickens</h2>
-          </div>
+<div class="video-overlay">
+<span class="video-meta">ENTERTAINMENT • 6 years ago</span>
+
+<h2>
+Mod turns 'Counter-Strike' into a 'Tekken' clone with fighting chickens
+</h2>
+
+<p>
+A creative gaming mod transforms classic gameplay into an unexpected 
+martial arts battle featuring animated fighting chickens.
+</p>
+
+<div class="action-row">
+
+<a href="404.html" class="watch-btn">
+Watch Video →
+</a>
+
+<a href="404.html" class="icon-btn">
+<i class="fa-solid fa-bookmark"></i>
+</a>
+
+<a href="404.html" class="icon-btn">
+<i class="fa-solid fa-share-nodes"></i>
+</a>
+
+</div>
+
+</div>
         </div>
       </div>
 
@@ -1960,7 +2189,22 @@ Advertisement
             <span class="business-meta">BUSINESS • 6 years ago</span>
             <h2>MSNBC Now First In Primetime</h2>
             <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet.</p>
-          </div>
+<div class="action-row">
+
+<a href="404.html" class="hero-btn">
+Read Report →
+</a>
+
+<a href="404.html" class="icon-btn">
+<i class="fa-solid fa-bookmark"></i>
+</a>
+
+<a href="404.html" class="icon-btn">
+<i class="fa-solid fa-share-nodes"></i>
+</a>
+
+</div>
+        </div>
         </div>
       </div>
 
