@@ -1380,10 +1380,15 @@ background:#ff0055;
 border-radius:10px;
 }
 
---menu ul{
+.stackly-menu ul{
 flex-direction:column;
-gap:20px;
+gap:0;
 text-align:center;
+}
+
+.stackly-menu ul li{
+padding:18px 0;
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .stackly-menu.active{
@@ -1542,7 +1547,7 @@ top:80px;
 left:0;
 width:100%;
 background:#111;
-padding:20px 0;
+padding:10px 0;
 display:none;
 border-radius:20px;
 
@@ -1551,9 +1556,15 @@ overflow-y:auto;
 }
 
 .stackly-menu ul{
-flex-direction:column;
-gap:20px;
-text-align:center;
+display:block;
+padding:0;
+margin:0;
+}
+
+.stackly-menu ul li{
+display:block;
+padding:18px 0;
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .stackly-menu.active{
@@ -1562,6 +1573,8 @@ display:block;
 
 .dropdown.active .dropdown-menu{
 display:block;
+height:auto;
+overflow:visible;
 }
 
 .hamburger{
@@ -1570,22 +1583,25 @@ display:block;
 
 .dropdown.active .dropdown-menu{
 display:block;
+height:auto;
+overflow:visible;
 }
 
 /* Mobile dropdown */
 .dropdown-menu{
+display:none;
 position:static;
 background:#1a1a1a;
-
-opacity:0;
-visibility:hidden;
-transform:none;
-transition:none;
+padding:0;
+margin:0;
+height:0;
+overflow:hidden;
 }
 
 .dropdown.active .dropdown-menu{
-opacity:1;
-visibility:visible;
+display:block;
+height:auto;
+overflow:visible;
 }
 
 }

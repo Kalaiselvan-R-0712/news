@@ -203,7 +203,7 @@ text-align:center;
 color:#fff;
 
 /* FIXED HERO IMAGE */
-background-image:url("assets/news-images/innovation.webp");
+background-image:url("assets/news-images/corp1.webp");
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
@@ -409,11 +409,20 @@ left:50%;
 transform:translateX(-50%);
 width:95%;
 background:#111;
-padding:20px 0;
+padding:10px 0; /* reduced padding */
 display:none;
 border-radius:30px;
 max-height:calc(100vh - 100px);
 overflow-y:auto;
+}
+
+.stackly-menu ul{
+margin:0;
+padding:0;
+}
+
+.stackly-menu ul li:first-child{
+margin-top:0;
 }
 
 .stackly-menu::-webkit-scrollbar{
@@ -428,8 +437,17 @@ border-radius:10px;
 /* MENU LIST */
 .stackly-menu ul{
 flex-direction:column;
-gap:20px;
+gap:0;
 text-align:center;
+}
+
+.stackly-menu ul li{
+padding:18px 0;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.stackly-menu ul li:first-child{
+padding-top:10px;
 }
 
 /* SHOW MENU */
@@ -442,20 +460,24 @@ display:block;
 display:block;
 }
 
-/* MOBILE DROPDOWN */
+/* MOBILE DROPDOWN RESET */
 .dropdown-menu{
-position:static;
+display:none !important;
+position:static !important;
+flex-direction:column;
 background:#1a1a1a;
-
-opacity:0;
-visibility:hidden;
-transform:none;
-transition:none;
+margin:0;
+padding:0;
+border-radius:12px;
 }
 
+/* SHOW WHEN ACTIVE */
 .dropdown.active .dropdown-menu{
-opacity:1;
-visibility:visible;
+display:block !important;
+}
+
+.dropdown{
+width:100%;
 }
 
 .footer-top{
@@ -704,30 +726,6 @@ visibility:hidden;
 position:relative;
 }
 
-/* ================= DARK MODE FIX FOR TRENDING CARDS ================= */
-
-body.dark .contact-section{
-background:#111;
-}
-
-body.dark .contact-section h2{
-color:#fff;
-}
-
-body.dark .contact-section h3{
-color:#fff;
-}
-
-body.dark .contact-section p{
-color:#ccc !important;
-}
-
-/* News card background */
-body.dark .contact-section div[style*="background:#fff"]{
-background:#1a1a1a !important;
-box-shadow:0 10px 30px rgba(0,0,0,0.6) !important;
-}
-
 /* ================= TEAM HERO ================= */
 
 .team-hero{
@@ -738,6 +736,7 @@ align-items:center;
 justify-content:center;
 text-align:center;
 color:#fff;
+
 background-image:url("assets/news-images/corp1.webp");
 background-size:cover;
 background-position:center;
@@ -751,7 +750,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.35);
+background:rgba(0,0,0,0.65);
 }
 
 .team-hero-content{
@@ -763,7 +762,7 @@ padding:20px;
 
 .team-hero h1{
 font-size:46px;
-margin-bottom:15px;
+margin-bottom:10px;
 }
 
 .team-hero p{
@@ -774,20 +773,19 @@ color:#ddd;
 /* ================= TEAM INTRO ================= */
 
 .team-intro{
-padding:80px 0 40px;
 text-align:center;
+padding:80px 0 40px;
+max-width:700px;
 }
 
 .team-intro h2{
-font-size:36px;
-margin-bottom:20px;
+font-size:34px;
+margin-bottom:15px;
 }
 
 .team-intro p{
-max-width:700px;
-margin:auto;
 color:#666;
-line-height:1.6;
+line-height:1.7;
 }
 
 
@@ -795,26 +793,22 @@ line-height:1.6;
 
 .team-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:35px;
-padding:40px 0 80px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+padding-bottom:80px;
 }
-
-
-/* ================= TEAM CARD ================= */
 
 .team-card{
 background:#fff;
-border-radius:14px;
+border-radius:16px;
 overflow:hidden;
-text-align:center;
-box-shadow:0 15px 35px rgba(0,0,0,0.08);
-transition:0.35s;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:0.3s;
 }
 
 .team-card:hover{
 transform:translateY(-8px);
-box-shadow:0 20px 45px rgba(0,0,0,0.15);
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
 }
 
 .team-card img{
@@ -824,70 +818,48 @@ object-fit:cover;
 }
 
 .team-info{
-padding:22px;
+padding:20px;
+text-align:center;
 }
 
 .team-info h3{
-margin-bottom:6px;
-font-size:18px;
+font-size:20px;
+margin-bottom:5px;
 }
 
 .team-role{
-color:#ff0055;
 font-size:14px;
-margin-bottom:12px;
+color:#888;
+margin-bottom:15px;
 }
-
-/* ================= TEAM SOCIAL ================= */
 
 .team-social{
 display:flex;
 justify-content:center;
-gap:12px;
-margin-top:10px;
+gap:15px;
 }
 
 .team-social a{
-width:36px;
-height:36px;
-background:#f1f1f1;
+width:35px;
+height:35px;
 display:flex;
 align-items:center;
 justify-content:center;
+background:#f1f1f1;
 border-radius:50%;
-transition:0.3s;
-}
-
-.team-social a i{
-color:#000;
-font-size:14px;
 transition:0.3s;
 }
 
 .team-social a:hover{
 background:#ff0055;
-transform:translateY(-3px);
-}
-
-.team-social a:hover i{
 color:#fff;
 }
 
-/* LIGHT MODE GLOW */
-body:not(.dark) .team-social a:hover{
-box-shadow:0 6px 15px rgba(255,0,85,.4);
-}
-
-/* DARK MODE FULL PINK */
-body.dark .team-social a:hover{
-background:#ff0055;
-box-shadow:none;
-}
 
 /* ================= TEAM STATS ================= */
 
 .team-stats{
-background:#000;
+background:#111;
 color:#fff;
 padding:80px 0;
 margin-top:40px;
@@ -895,9 +867,9 @@ margin-top:40px;
 
 .stats-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 text-align:center;
+gap:40px;
 }
 
 .stats-grid h2{
@@ -907,7 +879,7 @@ margin-bottom:5px;
 }
 
 .stats-grid p{
-color:#ccc;
+color:#bbb;
 }
 
 
@@ -916,12 +888,12 @@ color:#ccc;
 .team-cta{
 padding:80px 0;
 text-align:center;
-background:#fff;
+background:#f5f5f5;
 }
 
 .team-cta h2{
-font-size:34px;
-margin-bottom:15px;
+font-size:36px;
+margin-bottom:10px;
 }
 
 .team-cta p{
@@ -929,38 +901,49 @@ color:#666;
 }
 
 .team-cta button{
-padding:14px 35px;
-border:none;
 background:#ff0055;
 color:#fff;
+border:none;
+padding:14px 35px;
 border-radius:40px;
 cursor:pointer;
-font-size:16px;
 transition:0.3s;
 }
 
 .team-cta button:hover{
 transform:translateY(-3px);
-box-shadow:0 10px 25px rgba(255,0,85,.3);
+box-shadow:0 10px 25px rgba(255,0,85,0.4);
 }
 
 
-/* ================= DARK MODE FIX ================= */
+/* ================= DARK MODE ================= */
 
 body.dark .team-card{
 background:#1a1a1a;
-}
-
-body.dark .team-intro p{
-color:#ccc;
 }
 
 body.dark .team-cta{
 background:#111;
 }
 
-body.dark .team-cta p{
+body.dark .team-intro p{
 color:#bbb;
+}
+
+/* FIX TEAM SOCIAL ICONS IN DARK MODE */
+
+body.dark .team-social a{
+background:#2a2a2a;
+color:#fff;
+}
+
+body.dark .team-social a i{
+color:#fff;
+}
+
+body.dark .team-social a:hover{
+background:#ff0055;
+color:#fff;
 }
 
 </style>
@@ -1164,8 +1147,8 @@ and impactful journalism to readers across the world.
     <li><a href="homepage2.html">Home</a></li>
     <li><a href="team.html">Team</a></li>
     <li><a href="lnews.html">Latest News</a></li>
-    <li><a href="contact_2.html">Contact</a></li>
-    <li><a href="dashboard_2.html">Dashboard</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
   </ul>
 </div>
 
@@ -1187,19 +1170,19 @@ and impactful journalism to readers across the world.
       <h3>Newsletter</h3>
       <p>Subscribe to receive latest Stackly news updates.</p>
 
-<form class="newsletter-box" id="newsletterForm">
-  <input 
-    type="email" 
-    id="newsletterEmail" 
-    placeholder="Your Email" 
-    required
-  >
-  <button type="submit">Subscribe</button>
-</form>
+      <form class="newsletter-box" id="newsletterForm">
+        <input 
+          type="email" 
+          id="newsletterEmail" 
+          placeholder="Your Email" 
+          required
+        >
+        <button type="submit">Subscribe</button>
+      </form>
 
-<small id="newsletterMsg" style="color:#ff4d4d; display:none; margin-top:8px;">
-  Please enter a valid email address.
-</small>
+      <small id="newsletterMsg" style="color:#ff4d4d; display:none; margin-top:8px;">
+        Please enter a valid email address.
+      </small>
 
       <small>We respect your privacy.</small>
     </div>
@@ -1249,25 +1232,7 @@ newsletterForm.addEventListener("submit", function(e){
   newsletterMsg.style.display = "none";
   newsletterEmail.style.border = "none";
 
-  window.location.href = "404.html";
-});
-
-</script>
-
-<script>
-
-// CONTACT FORM VALIDATION
-const contactForm = document.getElementById("contactForm");
-
-contactForm.addEventListener("submit", function(e){
-
-e.preventDefault();
-
-// simple validation already handled by required fields
-
-// redirect to 404 page
-window.location.href = "404.html";
-
+  window.location.href = "404_2.html";
 });
 
 </script>
